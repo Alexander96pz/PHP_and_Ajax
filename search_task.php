@@ -1,11 +1,11 @@
 <?php 
     include('backend.php');
-    if (isset($_POST['search'])) {
+    if (!empty($_POST['search'])) {
         $search=$_POST['search'];
         $query="SELECT * FROM task WHERE title LIKE '$search%'";
         $result=mysqli_query($conn,$query);
         if(!$result){
-            die("query fallido".mysqli_error($conn));
+            die('query fallido'.mysqli_error($conn));
         }else{
             // $json=array();
             while($row=mysqli_fetch_array($result)){
@@ -20,5 +20,4 @@
             echo $jsonObj;
         }
     }
-
 ?>

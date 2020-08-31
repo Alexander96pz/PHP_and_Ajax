@@ -65,16 +65,18 @@ $(function () {
     }
 
     $(document).on('click', '#delete_task', function (e) {
-        let row = $(this)[0].parentElement.parentElement;
-        let id=$(row).attr('taskId');
-        $.ajax({
-            url: 'task_delete.php',
-            type: 'GET',
-            data: {id},
-            success: function(e) {
-                listTask();
-            }
-        })
+        if (confirm("Sure of the delete")) {
+            let row = $(this)[0].parentElement.parentElement;
+            let id = $(row).attr('taskId');
+            $.ajax({
+                url: 'task_delete.php',
+                type: 'GET',
+                data: { id },
+                success: function (e) {
+                    listTask();
+                }
+            })
+        }
     });
 
 });

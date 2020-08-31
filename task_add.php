@@ -8,7 +8,7 @@
         if (!$result) {
             die("falla en en la insercion");
         }else {
-            echo "Sava succerfully";
+            echo "Save succerfully";
         }
     }
 ?>
